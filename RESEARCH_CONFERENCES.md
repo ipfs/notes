@@ -20,20 +20,20 @@
 
 > The USENIX Annual Technical Conference is a conference of computing professions sponsored by the USENIX association.
 
-**Topics:** Systems, Network Security and Consensus.
+**`Topics:`** Systems, Network Security and Consensus.
 
-**Interesting Papers Published:**
+**`Interesting Papers Published:`**
 
 - [Blockstack: A Global Naming and Storage System Secured by Blockchains](https://www.usenix.org/node/196209)
 - [ParaFS: A Log-Structured File System to Exploit the Internal Parallelism of Flash Devices](https://www.usenix.org/node/196195)
 
-**Important Dates:**
+**`Important Dates:`**
 
 - Next Conference date [July 11-13, 2018](https://www.usenix.org/conference/atc18)
 - Call for Papers, deadline [Tuesday, February 6, 2018](https://www.usenix.org/conference/atc18/call-for-papers)
 - Other dates https://www.usenix.org/conference/atc18/call-for-papers
 
-**Previous Editions:**
+**`Previous Editions:`**
 
 > All conferences - https://www.usenix.org/conferences/byname/131
 
@@ -71,20 +71,20 @@
 
 > <short description>
 
-**Topics:** <topics of the conference>
+**`Topics:  ** <topics of the conference>
 
-**Interesting Papers Published:**
+**`Interesting Papers Published:`**
 
 - <insert relevant papers published to the domain we work on>
 - ...
 
-**Important Dates:**
+**`Important Dates:`**
 
 - Next Conference date <date here>
 - Call for Papers, deadline <date here>
 - Location
 
-**Previous Editions:**
+**`Previous Editions:`**
 
 - <insert year and url of previous edition>
 - ...
