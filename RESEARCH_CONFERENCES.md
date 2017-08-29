@@ -16,7 +16,7 @@
 
 ## Conferences
 
-#### Usenix ATC, Annual Technical Conference
+### Usenix ATC, Annual Technical Conference
 
 > The USENIX Annual Technical Conference is a conference of computing professions sponsored by the USENIX association.
 
@@ -67,7 +67,7 @@
 ## Template
 
 ```
-#### <Name>
+### <Name>
 
 > <short description>
 
