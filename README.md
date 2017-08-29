@@ -1,4 +1,4 @@
-# ipfs-notes
+# IPFS Research and Idea Discussions
 
 [![](https://img.shields.io/badge/made%20by-Protocol%20Labs-blue.svg?style=flat-square)](http://ipn.io)
 [![](https://img.shields.io/badge/project-IPFS-blue.svg?style=flat-square)](http://ipfs.io/)
@@ -6,9 +6,9 @@
 [![](https://img.shields.io/badge/discussion_repo-go_to_issues-brightgreen.svg?style=flat-square)](https://github.com/ipfs/archives/issues)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-> notes on random things
+> **We use this repo issues to track several kinds of discussion on topics related with Research and IPFS, random ideas and proposals for new systems or features that don't fall on a specific repo yet**
 
-This is a **discussion repo**. That means that all of the work gets done in the [issues](https://github.com/ipfs/apps/issues).
+All the discussion happens in the issues the [issues](https://github.com/ipfs/notes/issues).
 
 ## Contribute
 
