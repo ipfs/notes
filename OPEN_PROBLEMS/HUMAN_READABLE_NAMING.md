@@ -9,7 +9,7 @@ Memorizing Content Addresses is hard, No one should have to do that. We need a s
 
 ## State of the Art
 
-> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey. 
+> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey.
 
 ### Within the IPFS Ecosystem
 > Existing attempts and strategies
@@ -32,8 +32,8 @@ Multibase now has support for a [mnemonic base](https://github.com/multiformats/
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
-- [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) - One of the first widely deployed solutions for Human readable names. 
-- 
+- [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) - One of the first widely deployed solutions for Human readable names.
+-
 
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
@@ -51,7 +51,7 @@ Make the Content Addressing schemes more approachable by everyone.
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
 The constraints are:
-- 
+-
 
 ## Other
 
