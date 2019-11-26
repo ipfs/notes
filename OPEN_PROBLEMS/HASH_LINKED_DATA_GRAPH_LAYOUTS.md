@@ -11,7 +11,7 @@ We believe this to be an evergreen field as the IPFS network improves and gets s
 
 ## State of the Art
 
-> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey. 
+> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey.
 
 ### Within the IPFS Ecosystem
 > Existing attempts and strategies
