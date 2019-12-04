@@ -59,20 +59,18 @@ You can learn more about this at the following references:
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
 
-The existing solutions do not offer all the guarantees we want to achieve for Web 3.0 apps because:
--
+To the best of our knowledge, there isn't an existing solution for Web3 that offers a naming solution that is Human-meaningful, Secure and/or Decentralized.
 
 ## Solving this Open Problem
 
 ### What is the impact
 
-Make the Content Addressing schemes more approachable by everyone.
+It will unblock the onboarding path from existing Web 2.0 users to Web 3.0 by reducing the friction of adoption.
 
 ### What defines a complete solution?
 > What hard constraints should it obey? Are there additional soft constraints that a solution would ideally obey?
 
-The constraints are:
--
+We would like to see approaches that take into account different applications as use cases (blogs, forums, social networks) and offer solutions that can hit 3 out of 3 of Zooko's triangle.
 
 ## Other
 
@@ -83,4 +81,4 @@ The constraints are:
 
 ### Extra notes
 
-- [https://decentralized.blog/ten-terrible-attempts-to-make-ipfs-human-friendly.html](https://decentralized.blog/ten-terrible-attempts-to-make-ipfs-human-friendly.html)
+- [Ten terrible attempts to make IPFS human friendly](https://decentralized.blog/ten-terrible-attempts-to-make-ipfs-human-friendly.html)
