@@ -33,9 +33,9 @@ DNSlink combines IPFS and DNS to use a user familiar addressing scheme (domains)
 
 Multibase now has support for a [mnemonic base](https://github.com/multiformats/js-multibase/compare/36d60d3f9379ea005327fe3a375f03ba286d0ecc...tableflip:feat/mnemonic-base) and given that CIDs are encoded with multibase so that they can be represented as strings, you can get your own mnemonic base encoded content address. This makes a name pronunceable, but given the amount of information in a CID, it is a long mnemonic.
 
-##### textile.photos short URLs
+##### IPFS link-shortening service provided by textile.photos cafes
 
-TODO
+Full explanation at https://blog.textile.io/ipfs-experiments-creating-ipfs-links-that-you-can-delete/
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
