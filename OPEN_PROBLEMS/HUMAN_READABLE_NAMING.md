@@ -39,8 +39,21 @@ TODO
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
 
-- [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) - One of the first widely deployed solutions for Human readable names.
--
+##### [DNS](https://en.wikipedia.org/wiki/Domain_Name_System)
+
+One of the first widely deployed solutions for Human readable names.
+
+##### ICN/NDN
+
+In ICN/NDN names are used to do routing in the network (i.e., involving network routers). The NDN (formerly CCNx) project started with hierarchical, human-readable name structure, but it later became apparent that having only human-readable names is not quite an option.
+
+It's impossible to guarantee that no two users will give the same name to some content. This translates to eventually needing to introduce a (logically) centralised entity (DNS-like) to keep track of these. Furthermore, most such ICN architectures assume existence of ASes and ISPs, as well as some entity similar to ICANN.
+
+You can learn more about this at the following references:
+
+- [Secure Naming for a Network of Information](https://core.ac.uk/download/pdf/11433344.pdf)
+- [A Survey of Naming and Routing in Information-Centric Networks](https://www.researchgate.net/publication/260670278_A_Survey_of_Naming_and_Routing_in_Information-Centric_Networks)
+- [Where is in a Name: A Survey of Mobility in ICN](http://www.eecs.qmul.ac.uk/~tysong/files/CACM13.pdf)
 
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
