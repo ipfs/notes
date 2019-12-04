@@ -3,9 +3,12 @@
 ## Short Description
 > In one sentence or paragraph.
 
+Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on either/or a central provider, an unauthenticated host, on unauthenticated data and without leaking their intent to access some piece of content that is referenced by that name.
+
 ## Long Description
 
-Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on a central provider, an unauthenticated host, on unauthenticated data or without leaking their intent to access some piece of content that is referenced by that name.
+TODO
+- Include Zooko's triangle
 
 ## State of the Art
 
@@ -28,6 +31,10 @@ DNSlink combines IPFS and DNS to use a user familiar addressing scheme (domains)
 ##### mnemonic base
 
 Multibase now has support for a [mnemonic base](https://github.com/multiformats/js-multibase/compare/36d60d3f9379ea005327fe3a375f03ba286d0ecc...tableflip:feat/mnemonic-base) and given that CIDs are encoded with multibase so that they can be represented as strings, you can get your own mnemonic base encoded content address. This makes a name pronunceable, but given the amount of information in a CID, it is a long mnemonic.
+
+##### textile.photos short URLs
+
+TODO
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
