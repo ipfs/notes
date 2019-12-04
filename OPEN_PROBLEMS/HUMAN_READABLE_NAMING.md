@@ -3,12 +3,13 @@
 ## Short Description
 > In one sentence or paragraph.
 
-Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on either/or a central provider, an unauthenticated host, on unauthenticated data and without leaking their intent to access some piece of content that is referenced by that name.
+You can only have two of three properties for a name: Human-meaningful, Secure and/or Decentralized. This is [Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle). Can we have all 3? Does context matter to solve this problem?
 
 ## Long Description
 
-TODO
-- Include Zooko's triangle
+Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on either/or a central provider, an unauthenticated host, on unauthenticated data and without leaking their intent to access some piece of content that is referenced by that name.
+
+[Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle) suggests that it is impossible to get a name that is Human-meaningful, Secure and Decentralized. However, what is resides as a question is the possibility to take into account the context for the resolution of the name (locality: Decentralized, but local / namespaced). We believe there is an avenue here to explore.
 
 ## State of the Art
 
