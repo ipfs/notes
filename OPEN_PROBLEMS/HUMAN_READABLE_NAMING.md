@@ -3,13 +3,43 @@
 ## Short Description
 > In one sentence or paragraph.
 
-You can only have two of three properties for a name: Human-meaningful, Secure and/or Decentralized. This is [Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle). Can we have all 3? Does context matter to solve this problem?
+You can only have two of three properties for a name: Human-meaningful, Secure and/or Decentralized. This is [Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle). Can we have all 3, or even more? Can context related to some data help solve this problem?
 
 ## Long Description
 
-Memorizing Content Addresses is hard, No one should have to do that. We need a solution that can provide Human Readable Names to users without making them to rely on either/or a central provider, an unauthenticated host, on unauthenticated data and without leaking their intent to access some piece of content that is referenced by that name.
+Content naming is an integral part of any content-oriented network architecture. In contrast to today’s approach of securing the channel and authenticating the end-host when receiving some content, in content-centric networks, it is the content itself that has to be secured and authenticated. Doing so enables the very important property of location-independent caching of content - that is, clients don’t need to trust the machine that provides the content, as long as one can verify that the content is what it claims to be. The claim is verified through the content name.
+
+That said, the naming scheme needs to integrate some properties to guarantee security and some others to enable non-security-related functionality.
+
+There are generally three types of names that have so far been investigated and implemented in the area of content-oriented networks: flat, normally hash-based names (as seen in IPFS and [NetInf](https://core.ac.uk/download/pdf/11433344.pdf)), hierarchical, as seen in [NDN](https://named-data.net) and [tag-based](http://conferences2.sigcomm.org/acm-icn/2014/papers/p17.pdf).
+
+We start by dividing between two types of properties for content names, that is, those that a name “has to have” and those that a name “would be good to have”.
+
+In a content-oriented architecture (such as IPFS) the name **has to:**
+
+- **provide security** guarantees, which further splits into two sub-properties
+  - be *persistent & unique:* the name needs to stay the same even if the storage location or the owner of some content changes. Unique names enable the very important property of being able to cache content in arbitrary points in the network. Even if a tiny portion of the content changes, the name identifier changes too. In IPFS, this is achieved with hashing. Name-persistency makes it difficult to address dynamic content - see discussion on *“mutable content”* further below.
+  - be *self-certifying:* the main purpose of having self-certifying names is to prove _data authenticity_. This is an important complementary part of name persistency to enable location-agnostic caching. Self-certifying names are normally non-human readable. 
+Traditionally, self-certifying names have been consider to be those that are not human readable and most commonly have been based on the hash of the content itself. Alternative ways to authenticate content is through obtaining the hash of the owner’s key. This helps in case of dynamic content and is used in IPNS and NDN, but it might lead to limited decentralisation properties.
+
+The second set of properties are those that **would be good to have** or need to be supported due to other core infrastructure requirements. These are:
+
+
+- *human readable:* memorizing Content Addresses is hard. No one should have to do that. We need a solution that can provide Human Readable Names to users without making them rely on either a central provider, an unauthenticated host, or on unauthenticated data, but without leaking their intent to access some piece of content that is referenced by that name.
+Another element that comes into play in self-certifying names is to ensure that the user gets hold of the correct content ID.  For this to happen, there needs to be an external entity (e.g., search engine, or reputation algorithm) that provides the right self-certifying ID to the user. Therefore, decentralised search engines are expected to be an important component of human-readable names - see [this thread](https://discuss.ipfs.io/t/file-discovery-in-ipfs/1320) for a discussion on this topic.
+
+- *hierarchical:* adding some hierarchy in the naming structure can enable aggregation, which can be very important in terms of scalability of the routing fabric. This is especially the case with network-layer names, that is, names used by routers to forward packets (such as in Named Data Networking). Hierarchical names are usually linked with human-meaningful names, mainly due to their structural relation to URLs, but they do not have to be.
+
+- *mutable:* content-derived hashes make it difficult to identify dynamic content, as the hash changes every time the content is altered. However, being able to support mutable content is key in any content addressable architecture. An approach often used is to address mutable content through the hash of the owner’s/publisher’s key. [IPNS](https://docs.ipfs.io/guides/concepts/ipns) is following a very similar approach, having been inspired by the [Self-Certified File System (SFS)](https://en.wikipedia.org/wiki/Self-certifying_File_System). IPLD is then used to address subgraphs of DAGs.
+
+- *decentralised:* being able to resolve and verify content integrity/authenticity without relying on a (centralised) trusted third party, e.g., a Certificate Authority, is a central part of solutions in the Web3 space. Decentralisation also links to anonymity, that is, being able to publish content without being linked back to the publication of the content. Authenticating content through the hash of the owners’ key might reduce anonymity properties (see study of the NetInf project for solution proposals).
+
+We conjecture that not all of the second group of properties can be natively supported by the naming scheme itself and will therefore have to be supported by external infrastructure components.
 
 [Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle) suggests that it is impossible to get a name that is Human-meaningful, Secure and Decentralized. However, what is resides as a question is the possibility to take into account the context for the resolution of the name (locality: Decentralized, but local / namespaced). We believe there is an avenue here to explore.
+
+**Summary of open problem:** The focus of this Open Problem is to formally define which of the *“would be good to have”* properties can we integrate in a naming scheme, while in all cases guaranteeing the first set of requirements is in place. We would like to formally investigate the Zooko’s trilema in a wider scope and assuming security and decentralisation are core parts of a naming scheme explore how and whether human-readability, mutability and name hierarchy can be integrated natively in a naming scheme, or alternatively supported by external architecture elements.
+
 
 ## State of the Art
 
