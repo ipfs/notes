@@ -102,6 +102,8 @@ It will unblock the onboarding path from existing Web 2.0 users to Web 3.0 by re
 
 We would like to see approaches that take into account different applications as use cases (blogs, forums, social networks) and offer solutions that can hit 3 out of 3 of Zooko's triangle.
 
+Assuming security and decentralisation needs to be inherent parts of the naming scheme (at least in the IPFS ecosystem), we would like to: i) prove that the Zooko’s trilema holds (or prove that it does not hold), and ii) extend the Zooko’s trilema to explore the “would be good to have” properties above.
+
 ## Other
 
 ### Existing Conversations/Threads
