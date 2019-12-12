@@ -36,7 +36,7 @@ Another element that comes into play in self-certifying names is to ensure that 
 
 We conjecture that not all of the second group of properties can be natively supported by the naming scheme itself and will therefore have to be supported by external infrastructure components.
 
-[Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle) suggests that it is impossible to get a name that is Human-meaningful, Secure and Decentralized. However, what is resides as a question is the possibility to take into account the context for the resolution of the name (locality: Decentralized, but local / namespaced). We believe there is an avenue here to explore.
+[Zooko's Trilemma](https://en.wikipedia.org/wiki/Zooko%27s_triangle) suggests that it is impossible to get a name that is Human-meaningful, Secure and Decentralized. However, what resides as a question is the possibility to take into account the context for the resolution of the name (locality: Decentralized, but local / namespaced). We believe there is an avenue here to explore. Furthermore, recent proposals including [Blockstack](https://en.wikipedia.org/wiki/Blockstack) and [Namecoin](https://en.wikipedia.org/wiki/Namecoin) have gone into significant depth to overcome Zooko's conjecture. None of these systems, however, have been tested at scale, or analytically proven.
 
 **Summary of open problem:** The focus of this Open Problem is to formally define which of the *“would be good to have”* properties can we integrate in a naming scheme, while in all cases guaranteeing the first set of requirements is in place. We would like to formally investigate the Zooko’s trilema in a wider scope and assuming security and decentralisation are core parts of a naming scheme explore how and whether human-readability, mutability and name hierarchy can be integrated natively in a naming scheme, or alternatively supported by external architecture elements.
 
@@ -76,7 +76,7 @@ One of the first widely deployed solutions for Human readable names.
 
 ##### ICN/NDN
 
-In ICN/NDN names are used to do routing in the network (i.e., involving network routers). The NDN (formerly CCNx) project started with hierarchical, human-readable name structure, but it later became apparent that having only human-readable names is not quite an option.
+In Named Data Networking, names are used to do routing in the network (i.e., natively at the network layer). The NDN (formerly CCNx) project started with hierarchical, human-readable name structure, but it later became apparent that having only human-readable names is not quite an option.
 
 It's impossible to guarantee that no two users will give the same name to some content. This translates to eventually needing to introduce a (logically) centralised entity (DNS-like) to keep track of these. Furthermore, most such ICN architectures assume existence of ASes and ISPs, as well as some entity similar to ICANN.
 
@@ -89,7 +89,7 @@ You can learn more about this at the following references:
 ### Known shortcommins of existing solutions
 > What are the limitations on those solutions?
 
-To the best of our knowledge, there isn't an existing solution for Web3 that offers a naming solution that is Human-meaningful, Secure and/or Decentralized.
+To the best of our knowledge, there isn't an existing solution for Web3 that offers a naming solution that is Human-meaningful, Secure and Decentralized. More generally, and considering the two sets of requirements earlier in this document, there has been no formal proof that the listed content name properties can or cannot co-exist, as well as what are the reasons affecting the tradeoffs that arise. 
 
 ## Solving this Open Problem
 
