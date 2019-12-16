@@ -15,7 +15,7 @@ There are generally three types of names that have so far been investigated and 
 
 We start by dividing between two types of properties for content names, that is, those that a name _must_ have and those that a name _should_ have.
 
-In a content-oriented architecture (such as IPFS) the name **has to:**
+In a content-oriented architecture (such as IPFS) the name **must**:
 
 - **provide security** guarantees, which further splits into two sub-properties
   - be *persistent & unique:* the name needs to stay the same even if the storage location or the owner of some content changes. Unique names enable the very important property of being able to cache content in arbitrary points in the network. Even if a tiny portion of the content changes, the name identifier changes too. In IPFS, this is achieved with hashing. Name-persistency makes it difficult to address dynamic content - see discussion on *“mutable content”* further below.
