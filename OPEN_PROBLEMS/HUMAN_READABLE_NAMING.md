@@ -13,7 +13,7 @@ That said, the naming scheme needs to integrate some properties to guarantee sec
 
 There are generally three types of names that have so far been investigated and implemented in the area of content-oriented networks: flat, normally hash-based names (as seen in IPFS and [NetInf](https://core.ac.uk/download/pdf/11433344.pdf)), hierarchical, as seen in [NDN](https://named-data.net) and [tag-based](http://conferences2.sigcomm.org/acm-icn/2014/papers/p17.pdf).
 
-We start by dividing between two types of properties for content names, that is, those that a name “has to have” and those that a name “would be good to have”.
+We start by dividing between two types of properties for content names, that is, those that a name _must_ have and those that a name _should_ have.
 
 In a content-oriented architecture (such as IPFS) the name **has to:**
 
