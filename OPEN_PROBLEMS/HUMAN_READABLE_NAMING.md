@@ -22,7 +22,7 @@ In a content-oriented architecture (such as IPFS) the name **must**:
   - be *self-certifying:* the main purpose of having self-certifying names is to prove _data authenticity_. This is an important complementary part of name persistency to enable location-agnostic caching. Self-certifying names are normally non-human readable. 
 Traditionally, self-certifying names have been considered to be those that are not human-readable and most commonly have been based on the hash of the content itself. An alternative way to authenticate content is through the hash of the owner’s key. This helps in case of dynamic content and is used in IPNS and NDN, but it might lead to limited decentralisation properties.
 
-The second set of properties are those that **would be good to have** or need to be supported due to other core infrastructure requirements. These are:
+The second set of properties are those that the name **should** have or that need to be supported due to other core infrastructure requirements. These are:
 
 
 - *human readable:* memorizing Content Addresses is hard. No one should have to do that. We need a solution that can provide Human Readable Names to users without making them rely on either a central provider, an unauthenticated host, or on unauthenticated data, but without leaking their intent to access some piece of content that is referenced by that name.
