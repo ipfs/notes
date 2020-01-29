@@ -11,13 +11,13 @@ IPFS starts by resolving the CID to a peerID and further to the exact location o
 
 In particular, IPFS asks Bitswap for the blocks corresponding to a set of CIDs. Upon this request, Bitswap sends a request for the CIDs to all of its directly connected peers. If none of the node's directly connected peers have one or more of the requested blocks, Bitswap falls back to querying the DHT for the root node of the DAG. That said, Bitswap also participates in the discovery phase and not only in the actual block exchange.
 
-In order to synchronise a DAG between untrusted nodes, bitswap is exploiting the content-addressability feature of IPFS. This means that bitswap starts with the root hash of the DAG. Once it fetches the data, it verifies that its hash matches. The node can now trust this block and can thus continue with the rest of the blocks in the DAG (aka walk the DAG) until it gets the complete DAG and the data associated with it.
+In order to synchronize a DAG between untrusted nodes, bitswap is exploiting the content-addressability feature of IPFS. This means that bitswap starts with the root hash of the DAG. Once it fetches the data, it verifies that its hash matches. The node can now trust this block and can thus continue with the rest of the blocks in the DAG (aka walk the DAG) until it gets the complete DAG and the data associated with it.
 
 In the current implementation of bitswap, requesting nodes send their WANT lists to all the peers they are directly connected to. This results in potentially duplicate data being sent back to the receiving node. When the receiving node has received the block(s) it asked for, it sends a CANCEL message to its peers to let them know that the block(s) is not in its WANT list anymore.
 
 If none of the directly connected peers have any of the WANT list blocks, bitswap falls back to the DHT to find the requested content. This results in long delays to get to a peer that stores the requested content.
 
-Once the recipient node starts receiving content from multiple peer nodes, bitswap prioritises sending WANT lists to the peers with lower latencies. Current proposals within the IPFS ecosystem are considering prioritising sending the WANT lists to those nodes with the least amount of queued work, in the hope that this will result in higher througput. It is not clear at this point which approach will lead to the highest performance benefit.
+Once the recipient node starts receiving content from multiple peer nodes, bitswap prioritizes sending WANT lists to the peers with lower latencies. Current proposals within the IPFS ecosystem are considering prioritizing sending the WANT lists to those nodes with the least amount of queued work, in the hope that this will result in higher throughput. It is not clear at this point which approach will lead to the highest performance benefit.
 
 It is important to highlight that bitswap is a message-oriented protocol and _not_ a request-response protocol. That is, it sends messages including WANT lists and is then waiting for the blocks in the WANT list to be delivered back, as and when the discovery protocol manages to find the blocks in the WANT list.
 
@@ -27,7 +27,7 @@ This process of bitswap results in the following major problems:
 - **Many Roundtrips:** The most pressing issue is that requesting nodes have to make several roundtrips to walk the DAG, especially given that IPFS is a network run by untrusted nodes.
 - **Duplicate Data:** Bitswap is operating at the block level. In turn, this means that every block has to be requested from each peer that the node is connected to. This process results in duplicate traffic towards the data requestor, unnecessary load for the peers, and high overhead for the network.
 
-In the latest release of Bitswap there is an optimisation of the above procedure that incorporates the concept of Sessions. Sessions are used to keep track of peers that have some of the blocks that the Session is interested in. In particular:
+In the latest release of Bitswap there is an optimization of the above procedure that incorporates the concept of Sessions. Sessions are used to keep track of peers that have some of the blocks that the Session is interested in. In particular:
 
 - When IPFS asks Bitswap for the blocks corresponding to a set of CIDs, Bitswap:
   - creates a new sessions
@@ -37,33 +37,33 @@ In the latest release of Bitswap there is an optimisation of the above procedure
 
 ## State of the Art
 
-> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey. 
+> This survey on the State of the Art is not by any means complete, however, it should provide a good entry point to learn what are the existing work. If you have something that is fundamentally missing, please consider submitting a PR to augment this survey.
 
 ### Within the IPFS Ecosystem
 > Existing attempts and strategies
 
 The IPFS community has long been aware of the issues of bitswap and has experimented (at least conceptually) with potential solutions. We are discussing some of them here:
 
-- *Parallelise the DAG walk.* Inherently, DAGs have one root node and then split into binary trees. Doing one walk for each of the branches results in the same number of round trips, but reduces the actual delay in half. Clearly, this approach does not apply for single-branch graphs, such as blockchains.
+- *Parallelize the DAG walk.* Inherently, DAGs have one root node and then split into binary trees. Doing one walk for each of the branches results in the same number of round trips, but reduces the actual delay in half. Clearly, this approach does not apply for single-branch graphs, such as blockchains.
 
-- *DAG Block Interconnection.* Although bitswap does not/cannot recognise any relationship between different blocks of the same DAG, a requesting node can ask a node that provided a previous block for subsequent blocks of the same DAG. This approach intuitively assumes that a node that has a block of a DAG is very likely to have others. This is often referred to as “session” between the peers that have provided some part of the DAG.
+- *DAG Block Interconnection.* Although bitswap does not/cannot recognize any relationship between different blocks of the same DAG, a requesting node can ask a node that provided a previous block for subsequent blocks of the same DAG. This approach intuitively assumes that a node that has a block of a DAG is very likely to have others. This is often referred to as “session” between the peers that have provided some part of the DAG.
 
-- *Latency & Throughput Optimisation.* Bitswap is currently sorting peers by latency, i.e., it is prioritising the connections that incur lower latency. Ideally, a hybrid approach needs to be implemented, where prioritisation based on latency applies to narrow but deep DAGs (e.g., blockchains), whereas prioritisation based on higher throughput applies to wide DAGs that are being traversed in parallel.
+- *Latency & Throughput Optimization.* Bitswap is currently sorting peers by latency, i.e., it is prioritizing the connections that incur lower latency. Ideally, a hybrid approach needs to be implemented, where prioritization based on latency applies to narrow but deep DAGs (e.g., blockchains), whereas prioritization based on higher throughput applies to wide DAGs that are being traversed in parallel.
 
 - *Coding and Reed Solomon Codes.* This is a very efficient way to reduce storage space in general (trusted or untrusted) caching systems. The area of coded caching has seen significant development lately in the research community, hence, it is discussed further down.
 
-- *GraphSync through IPLD selectors:* GraphSync is a specification of a protocol to synchronise graphs across peers. Graphsync answers the question of “how do we succinctly identify selectors connected to the root”. In doing that, it develops WANT lists of selectors instead of blocks. Furthermore, in contrast to bitswap, which is message-oriented, GraphSync includes responses and is thus closer to a request-response protocol. If designed carefully, GraphSync can be very effective but there are still unresolved challenges: i) it is more difficult to parallelise (see above), given that GraphSync operates in terms of requests and not blocks, ii) it can potentially be much easier to carry DDoS attacks with queries than with requests for blocks.
+- *GraphSync through IPLD selectors:* GraphSync is a specification of a protocol to synchronize graphs across peers. Graphsync answers the question of “how do we succinctly identify selectors connected to the root”. In doing that, it develops WANT lists of selectors instead of blocks. Furthermore, in contrast to bitswap, which is message-oriented, GraphSync includes responses and is thus closer to a request-response protocol. If designed carefully, GraphSync can be very effective but there are still unresolved challenges: i) it is more difficult to parallelize (see above), given that GraphSync operates in terms of requests and not blocks, ii) it can potentially be much easier to carry DDoS attacks with queries than with requests for blocks.
 
-- *WANT Potential and HAVE message.* There have been several optimisation proposals, such as the implementation of a HAVE message before actually sending the requested block back. Although this immediately reduces duplicate traffic, it introduces one extra RTT, which might not be desirable in some cases, but might not have any negative impact in many others. In particular, the new message types are:
+- *WANT Potential and HAVE message.* There have been several optimization proposals, such as the implementation of a HAVE message before actually sending the requested block back. Although this immediately reduces duplicate traffic, it introduces one extra RTT, which might not be desirable in some cases, but might not have any negative impact in many others. In particular, the new message types are:
 
   - HAVE: a node can indicate that it has a block, which helps with reducing duplication, particularly during the discovery phase.
   - DONT_HAVE: a node can immediately indicate that it does not have a block. This is in contrast to the current implementation, where the requesting node has to wait for a timeout.
 
-In the latest proof-of-concept implementation, the following message combinations are being implemented as optimisation steps:
+In the latest proof-of-concept implementation, the following message combinations are being implemented as optimization steps:
 
   - WANT-BLOCK: *"send the block if you have it"*. This is an attempt to avoid the extra RTT.
   - WANT-HAVE: *"let me know if you have the block"*. This is to avoid duplication and help disseminate knowledge of block distribution in the network.
-  
+
 This way, the WANT-BLOCK messages are directed to the peers that are most likely to have those blocks.
 
 - Golang Implementation of Bitswap: https://github.com/ipfs/go-bitswap
@@ -93,7 +93,7 @@ The bittorrent protocol has a different architectural design, which includes the
 
 There have been significant research efforts lately in the area of coded caching. The main concept has been proposed in 1960s in the form of error correction and targeted the area of content delivery over wireless, lossy channels. It has been known as Reed-Solomon error correction. Lately, with seminal works such as “Fundamental Limits of Caching”, Niesen et. al. have proposed the use of coding to improve caching performance. In a summary, the technique works as follows: if we have a file that consists of 10 chunks and we store all 10 chunks in the same or different memories/nodes, then we need to retrieve those exact 10 chunks in order to reconstruct the file.
 
-In contrast, according to the coded caching theory, before storing the 10 chunks, we encode the file using erasure codes. This results in some number of chunks x>10, say 13, for the sake of illustration. This clearly results in more data produced after adding codes to the original data. However, when attempting to retrieve the original file, a user needs to collect *any 10 of those 13 chunks*. By doing so, the user will be able to reconstruct the original file, without needing to get all 13 chunks. 
+In contrast, according to the coded caching theory, before storing the 10 chunks, we encode the file using erasure codes. This results in some number of chunks x>10, say 13, for the sake of illustration. This clearly results in more data produced after adding codes to the original data. However, when attempting to retrieve the original file, a user needs to collect *any 10 of those 13 chunks*. By doing so, the user will be able to reconstruct the original file, without needing to get all 13 chunks.
 
 Although such approach does not save bandwidth (we still need to reconstruct 10 chunks of equal size to the original one), it makes the network more resilient to nodes being unavailable. In other words, in order to reconstruct the original file without coding, all 10 of the original peers that store a file have to be online and ready to deliver the chunks, whereas in the coded caching case, any 10 out of the 13 peers need to be available and ready to provide the chunks. Possibly more importantly, coded caching can provide significant performance benefits in terms of load-balancing. In case of large files, the upload link of nodes will be saturated for long periods of time. In contrast, delivering a few coded chunks and gathering the rest from other nodes will load-balance between nodes that store the requested content.
 
@@ -101,7 +101,7 @@ Blind replication of the original object will not provide the same benefit, as t
 
 - Reed-Solomon Error Correction: https://en.wikipedia.org/wiki/Reed–Solomon_error_correction
 - Maddah-Ali,  M.A.,  Niesen,  U.   Fundamental  limits  of  caching. IEEE  Transactions  on  Information Theory,60(5):2856–2867, 2014
-- Fundamental Limits of Caching (slides): http://archive.dimacs.rutgers.edu/Workshops/Green/Slides/niesen.pdf 
+- Fundamental Limits of Caching (slides): http://archive.dimacs.rutgers.edu/Workshops/Green/Slides/niesen.pdf
 - Shanmugam,  K.,  Golrezaei,  N.,  Dimakis,  A.G.,  Molisch,  A.F.,  Caire,  G.    Femtocaching:   Wire-
 less content delivery through distributed caching helpers. IEEE Transactions on Information Theory, 59(12):8402–8413, 2013
 - Amiri, M.M., Gündüz, D.  Fundamental limits of coded caching: Improved delivery rate-cache capacity
