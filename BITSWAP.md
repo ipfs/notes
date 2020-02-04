@@ -5,6 +5,7 @@
 - Previous discussions on ipfs/notes
   - https://github.com/ipfs/notes/issues/20
   - https://github.com/ipfs/notes/issues?utf8=%E2%9C%93&q=is%3Aissue%20is%3Aopen%20Bitswap
+- Previous meetings notes https://github.com/ipfs/research-bitswap/tree/master/meeting-notes
 
 ## Bitswap Research Review (papers, books, talks, lectures, etc)
 
