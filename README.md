@@ -21,13 +21,6 @@ Some of our Open Problems have open [RFPs](https://github.com/protocol/research-
 
 [Protocol Labs runs an RFP (Request For Proposals)](https://github.com/protocol/research-rfps) Program with the goal of funding individuals and groups to come up with novel solutions to the Open Problems found in this and other repos. If interested, please follow the link to check the active RFPs.
 
-## Other Research Repos in this Org
-
-- [research-CRDT](https://github.com/ipfs/research-CRDT)
-- [research-blockchain-data](https://github.com/ipfs/research-blockchain-data)
-- [research-bitswap](https://github.com/ipfs/research-bitswap)
-- [research-p2p-video](https://github.com/ipfs/research-p2p-video)
-
 ## Related research repos
 
 - [Protocol Labs Research](https://github.com/protocol/research)
