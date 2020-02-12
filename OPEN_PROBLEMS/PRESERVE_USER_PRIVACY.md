@@ -171,5 +171,6 @@ Also, contributions towards solving this Open Problem can be in the form of answ
 - [DHT improvement ideas](https://github.com/libp2p/research-dht/issues/6)
 - [Tor onion integration](https://github.com/ipfs/notes/issues/37)
 - [Identity RFC](https://github.com/ipfs-shipyard/peer-star/pull/15)
+- [A Taxonomy of Privacy, 2006](https://www.law.upenn.edu/journals/lawreview/articles/volume154/issue3/Solove154U.Pa.L.Rev.477(2006).pdf)
 
 ### Extra notes
