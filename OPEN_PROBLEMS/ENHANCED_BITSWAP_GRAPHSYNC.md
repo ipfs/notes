@@ -147,7 +147,7 @@ There are several desirable features discussed within IPFS that should be implem
 - [IPFS Spy](https://github.com/jimpick/go-ipfs/blob/jim/network-logging/README.ipfs-spy.md)
 - [Bitswap Simulator](https://github.com/heems/bssim)
 - [bsdash - dashboard for go-ipfs bitswap](https://www.npmjs.com/package/bsdash)
-
+- [Bitswap Strategy Implementation](https://github.com/ipfs/go-bitswap/issues/224#issuecomment-592775873)
 - Presentation of bitswap in Sept 2019 IPFS Weekly Call: https://www.youtube.com/watch?v=G_Q7iTpwYQU&list=PLuhRWgmPaHtSGRSHdU9dbsukHKlihZZAe&index=4
 
 
