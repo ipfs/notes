@@ -56,13 +56,14 @@ CRDTs are an extraordinary building block for data mutability without requiring 
 - https://github.com/ipfs-shipyard/peer-crdt-ipfs
 - https://orbitdb.org/
 
-##### Textile's data wallet and caffee 
+##### Textile's Hub, ThreadsDB and Powergate
 
-Textile offers a set of tools for build decentralized applications that also work on mobile platforms. Their documentation is pretty amazing and keeps evolving, to learn more follow the links below:
+Textile offers a set of tools for creating decentralized applications built on top of IPFS, Libp2p and Filecoin. Their documentation is pretty amazing and keeps evolving, to learn more follow the links below:
 
-- https://docs.textile.io/concepts/the-wallet
-- https://docs.textile.io/concepts/cafes
-- [Tutorial on how to use Textile form IPFS Camp](https://github.com/ipfs/camp/tree/master/CORE_AND_ELECTIVE_COURSES/ELECTIVE_COURSE_D)
+- https://docs.textile.io/hub/introduction/
+- https://docs.textile.io/threads/introduction/
+- https://docs.textile.io/powergate/introduction/
+- [Tutorial on how to use Textile form IPFS Camp (**Outdated**)](https://github.com/ipfs/camp/tree/master/CORE_AND_ELECTIVE_COURSES/ELECTIVE_COURSE_D)
 
 ### Within the broad Research Ecosystem
 > How do people try to solve this problem?
