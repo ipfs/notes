@@ -68,6 +68,7 @@ For a great explanation of these concepts plus what is a "Monotonic Join Semilat
 
 ### Notes and blog posts
 
+- [CRDTs For Fun and Profit](https://github.com/el10savio/crdts-for-fun-and-profit/blob/main/crdts.md)
 - [CRDT Tutorial for Beginners](https://github.com/ljwagerfield/crdt)
 - [Conflict-Free Replicated Data Types (CRDTs), An Offline Camp passion talk](https://medium.com/offline-camp/conflict-free-replicated-data-types-crdts-2c6ae67ab9a4#.duh4g0r9k)
 - [CRDT Notes by Paul Frazee](https://github.com/pfrazee/crdt_notes)
